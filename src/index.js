@@ -1,4 +1,4 @@
-import { APIRequest } from "./API_request_object";
+import { APIRequest } from "./API_request_module";
 
 APIRequest.getCityWeather("San Francisco")
   .then((response) => {
