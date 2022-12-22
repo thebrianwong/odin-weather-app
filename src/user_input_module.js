@@ -11,6 +11,8 @@ const userInput = (() => {
         DOMManipulation.addWeatherIcon(response);
         DOMManipulation.addWeatherMain(response);
         DOMManipulation.addWeatherDescription(response);
+        DOMManipulation.addTemperatureFahrenheit(response);
+        DOMManipulation.addTemperatureCelsius(response);
       } catch (error) {
         console.error(Error(error.statusText));
       }

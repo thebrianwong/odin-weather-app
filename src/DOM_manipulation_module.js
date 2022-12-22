@@ -18,7 +18,23 @@ const DOMManipulation = (() => {
     );
     weatherDescriptionElement.textContent = weatherDescription;
   };
-  return { addWeatherIcon, addWeatherMain, addWeatherDescription };
+  const addTemperatureFahrenheit = (weatherData) => {
+    const tempF = filterData.getTemperatureFahrenheit(weatherData);
+    const tempFElement = document.querySelector(".temp-f");
+    tempFElement.textContent = `${tempF}°F`;
+  };
+  const addTemperatureCelsius = (weatherData) => {
+    const tempC = filterData.getTemperatureCelsius(weatherData);
+    const tempCElement = document.querySelector(".temp-c");
+    tempCElement.textContent = `${tempC}°C`;
+  };
+  return {
+    addWeatherIcon,
+    addWeatherMain,
+    addWeatherDescription,
+    addTemperatureFahrenheit,
+    addTemperatureCelsius,
+  };
 })();
 
 export { DOMManipulation };
