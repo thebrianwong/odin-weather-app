@@ -5,22 +5,13 @@ const userInput = (() => {
   const addSearchButtonListener = () => {
     const searchButton = document.querySelector(".search-button");
     searchButton.addEventListener("click", async () => {
-      const city = document.querySelector("#city").value;
-      if (city !== "") {
+      const cityInputValue = document.querySelector("#city").value;
+      if (cityInputValue !== "") {
         try {
-          const response = await APIRequest.getCityWeather(city);
-          console.log(response.message);
-          console.log(response.weather[0].icon);
-          const icon = filterData.getWeatherIconCode(response);
-          const img = document.createElement("img");
-          img.src = `http://openweathermap.org/img/wn/${icon}.png`;
-          const div = document.querySelector("div");
-          div.appendChild(img);
-          console.log(filterData.getWeatherMain(response));
-          console.log(filterData.getWeatherDescription(response));
-          console.log(filterData.getTemperature(response));
-          console.log(filterData.getTemperatureFahrenheit(response));
-          console.log(filterData.getTemperatureCelsius(response));
+          const response = await APIRequest.getCityWeather(cityInputValue);
+          const weatherIcon = filterData.getWeatherIconCode(response);
+          const weatherIconElement = document.querySelector(".weather-icon");
+          weatherIconElement.src = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
         } catch (error) {
           console.error(Error(error.statusText));
         }
