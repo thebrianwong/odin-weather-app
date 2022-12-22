@@ -6,7 +6,12 @@ const DOMManipulation = (() => {
     const weatherIconElement = document.querySelector(".weather-icon");
     weatherIconElement.src = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
   };
-  return { addWeatherIcon };
+  const addWeatherMain = (weatherData) => {
+    const weatherMain = filterData.getWeatherMain(weatherData);
+    const weatherMainElement = document.querySelector(".weather-main");
+    weatherMainElement.textContent = weatherMain;
+  };
+  return { addWeatherIcon, addWeatherMain };
 })();
 
 export { DOMManipulation };

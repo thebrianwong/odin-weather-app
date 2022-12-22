@@ -8,7 +8,9 @@ const userInput = (() => {
     if (cityInputValue !== "") {
       try {
         const response = await APIRequest.getCityWeather(cityInputValue);
+        console.log(response);
         DOMManipulation.addWeatherIcon(response);
+        DOMManipulation.addWeatherMain(response);
       } catch (error) {
         console.error(Error(error.statusText));
       }
