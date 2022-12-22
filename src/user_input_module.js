@@ -1,5 +1,6 @@
 import { APIRequest } from "./API_request_module";
 import { filterData } from "./filter_data_module";
+import { DOMManipulation } from "./DOM_manipulation_module";
 
 const userInput = (() => {
   const submitUserInput = async () => {
@@ -7,9 +8,7 @@ const userInput = (() => {
     if (cityInputValue !== "") {
       try {
         const response = await APIRequest.getCityWeather(cityInputValue);
-        const weatherIcon = filterData.getWeatherIconCode(response);
-        const weatherIconElement = document.querySelector(".weather-icon");
-        weatherIconElement.src = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
+        DOMManipulation.addWeatherIcon(response);
       } catch (error) {
         console.error(Error(error.statusText));
       }
