@@ -13,6 +13,7 @@ const filterData = (() => {
   const getWeatherMain = (data) => data.weather[0].main;
   const getWeatherDescription = (data) => data.weather[0].description;
   const getWeatherIconCode = (data) => data.weather[0].icon;
+  const getCityName = (data) => data.name;
   return {
     getTemperature,
     getTemperatureFahrenheit,
@@ -20,6 +21,7 @@ const filterData = (() => {
     getWeatherMain,
     getWeatherDescription,
     getWeatherIconCode,
+    getCityName,
   };
 })();
 
