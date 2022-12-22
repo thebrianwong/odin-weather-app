@@ -33,6 +33,10 @@ const DOMManipulation = (() => {
     const cityNameElement = document.querySelector(".city-name");
     cityNameElement.textContent = cityName;
   };
+  const resetInputValue = () => {
+    const cityInputElement = document.querySelector("#city");
+    cityInputElement.value = "";
+  };
   return {
     addWeatherIcon,
     addWeatherMain,
@@ -40,6 +44,7 @@ const DOMManipulation = (() => {
     addTemperatureFahrenheit,
     addTemperatureCelsius,
     addCityName,
+    resetInputValue,
   };
 })();
 
