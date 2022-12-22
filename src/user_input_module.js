@@ -13,6 +13,7 @@ const userInput = (() => {
         DOMManipulation.addWeatherDescription(response);
         DOMManipulation.addTemperatureFahrenheit(response);
         DOMManipulation.addTemperatureCelsius(response);
+        DOMManipulation.addCityName(response);
       } catch (error) {
         console.error(Error(error.statusText));
       }

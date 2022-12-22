@@ -28,12 +28,18 @@ const DOMManipulation = (() => {
     const tempCElement = document.querySelector(".temp-c");
     tempCElement.textContent = `${tempC}°C`;
   };
+  const addCityName = (weatherData) => {
+    const cityName = filterData.getCityName(weatherData);
+    const cityNameElement = document.querySelector(".city-name");
+    cityNameElement.textContent = cityName;
+  };
   return {
     addWeatherIcon,
     addWeatherMain,
     addWeatherDescription,
     addTemperatureFahrenheit,
     addTemperatureCelsius,
+    addCityName,
   };
 })();
 
