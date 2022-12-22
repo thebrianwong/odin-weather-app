@@ -9,7 +9,7 @@ const userInput = (() => {
       if (city !== "") {
         try {
           const response = await APIRequest.getCityWeather(city);
-          console.log(response);
+          console.log(response.message);
           console.log(response.weather[0].icon);
           const icon = filterData.getWeatherIconCode(response);
           const img = document.createElement("img");
