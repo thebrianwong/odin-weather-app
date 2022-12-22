@@ -21,4 +21,4 @@ import { userInput } from "./user_input_module";
 //     console.log(response);
 //   });
 
-userInput.addSearchButtonListener();
+userInput.addUserInputListener();
