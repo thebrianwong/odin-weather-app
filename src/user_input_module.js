@@ -10,6 +10,7 @@ const userInput = (() => {
         const response = await APIRequest.getCityWeather(cityInputValue);
         DOMManipulation.addWeatherIcon(response);
         DOMManipulation.addWeatherMain(response);
+        DOMManipulation.addWeatherDescription(response);
       } catch (error) {
         console.error(Error(error.statusText));
       }

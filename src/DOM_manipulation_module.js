@@ -11,7 +11,14 @@ const DOMManipulation = (() => {
     const weatherMainElement = document.querySelector(".weather-main");
     weatherMainElement.textContent = weatherMain;
   };
-  return { addWeatherIcon, addWeatherMain };
+  const addWeatherDescription = (weatherData) => {
+    const weatherDescription = filterData.getWeatherDescription(weatherData);
+    const weatherDescriptionElement = document.querySelector(
+      ".weather-description"
+    );
+    weatherDescriptionElement.textContent = weatherDescription;
+  };
+  return { addWeatherIcon, addWeatherMain, addWeatherDescription };
 })();
 
 export { DOMManipulation };
