@@ -9,6 +9,8 @@ const APIRequest = (() => {
       return parsedObject;
     }
     // network error, change DOM to have error message
+    // actually this might make more sense to go in userInput()
+    return Promise.reject(response);
   };
   return { getCityWeather };
 })();

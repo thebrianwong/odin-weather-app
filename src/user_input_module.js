@@ -22,7 +22,7 @@ const userInput = (() => {
           console.log(filterData.getTemperatureFahrenheit(response));
           console.log(filterData.getTemperatureCelsius(response));
         } catch (error) {
-          console.log(error);
+          console.error(Error(error.statusText));
         }
       }
     });
