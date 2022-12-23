@@ -37,6 +37,22 @@ const DOMManipulation = (() => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.value = "";
   };
+  const addPlaceholderValues = () => {
+    const weatherIconElement = document.querySelector(".weather-icon");
+    const weatherMainElement = document.querySelector(".weather-main");
+    const weatherDescriptionElement = document.querySelector(
+      ".weather-description"
+    );
+    const tempFElement = document.querySelector(".temp-f");
+    const tempCElement = document.querySelector(".temp-c");
+    const cityNameElement = document.querySelector(".city-name");
+    weatherIconElement.src = "../mickey.png";
+    weatherMainElement.textContent = "The sun might or might not be visible";
+    weatherDescriptionElement.textContent = "hopefully the sky is still blue";
+    tempFElement.textContent = "larger number°F";
+    tempCElement.textContent = "smaller number°C";
+    cityNameElement.textContent = "Disneyland";
+  };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
     addWeatherMain(weatherData);
@@ -48,6 +64,7 @@ const DOMManipulation = (() => {
   };
   return {
     updateDisplayedWeather,
+    addPlaceholderValues,
   };
 })();
 
