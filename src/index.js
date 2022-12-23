@@ -1,6 +1,7 @@
 import { APIRequest } from "./API_request_module";
 import { filterData } from "./filter_data_module";
 import { userInput } from "./user_input_module";
+import { DOMManipulation } from "./DOM_manipulation_module";
 
 // APIRequest.getCityWeather("San Francisco")
 //   .then((response) => {
@@ -20,5 +21,17 @@ import { userInput } from "./user_input_module";
 //   .then((response) => {
 //     console.log(response);
 //   });
-
+(async function initializePage() {
+  try {
+    const response = await APIRequest.getCityWeather("Hell");
+    DOMManipulation.updateDisplayedWeather(response);
+  } catch (error) {
+    DOMManipulation.addPlaceholderValues();
+    console.error(
+      Error(
+        `${error.status} ${error.statusText}. If you can see this, that means there was an issue with the OpenWeatherMap API!`
+      )
+    );
+  }
+})();
 userInput.addUserInputListener();
