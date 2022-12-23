@@ -14,15 +14,27 @@ const userInput = (() => {
       }
     }
   };
+  const submitRandomInput = async () => {
+    try {
+      const cityResponse = await APIRequest.getRandomCity();
+      const randomCityName = filterData.getRandomCityName(cityResponse);
+      const weatherResponse = await APIRequest.getCityWeather(randomCityName);
+      DOMManipulation.updateDisplayedWeather(weatherResponse);
+    } catch (error) {
+      console.error(Error(`${error.status} ${error.statusText}`));
+    }
+  };
   const addUserInputListener = () => {
     const searchButton = document.querySelector(".search-button");
     const cityInputElement = document.querySelector("#city");
+    const randomButton = document.querySelector(".random-button");
     searchButton.addEventListener("click", submitUserInput);
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         submitUserInput();
       }
     });
+    randomButton.addEventListener("click", submitRandomInput);
   };
   return { addUserInputListener };
 })();
