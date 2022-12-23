@@ -49,8 +49,8 @@ const DOMManipulation = (() => {
     weatherIconElement.src = "../mickey.png";
     weatherMainElement.textContent = "The sun might or might not be visible";
     weatherDescriptionElement.textContent = "hopefully the sky is still blue";
-    tempFElement.textContent = "larger number°F";
-    tempCElement.textContent = "smaller number°C";
+    tempFElement.textContent = "Larger number°F";
+    tempCElement.textContent = "Smaller number°C";
     cityNameElement.textContent = "Disneyland";
   };
   const updateDisplayedWeather = (weatherData) => {
