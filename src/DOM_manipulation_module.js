@@ -37,14 +37,17 @@ const DOMManipulation = (() => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.value = "";
   };
+  const updateDisplayedWeather = (weatherData) => {
+    addWeatherIcon(weatherData);
+    addWeatherMain(weatherData);
+    addWeatherDescription(weatherData);
+    addTemperatureFahrenheit(weatherData);
+    addTemperatureCelsius(weatherData);
+    addCityName(weatherData);
+    resetInputValue();
+  };
   return {
-    addWeatherIcon,
-    addWeatherMain,
-    addWeatherDescription,
-    addTemperatureFahrenheit,
-    addTemperatureCelsius,
-    addCityName,
-    resetInputValue,
+    updateDisplayedWeather,
   };
 })();
 

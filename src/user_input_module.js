@@ -8,13 +8,7 @@ const userInput = (() => {
     if (cityInputValue !== "") {
       try {
         const response = await APIRequest.getCityWeather(cityInputValue);
-        DOMManipulation.addWeatherIcon(response);
-        DOMManipulation.addWeatherMain(response);
-        DOMManipulation.addWeatherDescription(response);
-        DOMManipulation.addTemperatureFahrenheit(response);
-        DOMManipulation.addTemperatureCelsius(response);
-        DOMManipulation.addCityName(response);
-        DOMManipulation.resetInputValue();
+        DOMManipulation.updateDisplayedWeather(response);
       } catch (error) {
         console.error(Error(error.statusText));
       }
