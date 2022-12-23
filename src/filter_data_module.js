@@ -14,6 +14,7 @@ const filterData = (() => {
   const getWeatherDescription = (data) => data.weather[0].description;
   const getWeatherIconCode = (data) => data.weather[0].icon;
   const getCityName = (data) => data.name;
+  const getRandomCityName = (data) => data.data[0].city;
   return {
     getTemperatureFahrenheit,
     getTemperatureCelsius,
@@ -21,6 +22,7 @@ const filterData = (() => {
     getWeatherDescription,
     getWeatherIconCode,
     getCityName,
+    getRandomCityName,
   };
 })();
 
