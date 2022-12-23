@@ -10,17 +10,26 @@ const userInput = (() => {
         const response = await APIRequest.getCityWeather(cityInputValue);
         DOMManipulation.updateDisplayedWeather(response);
       } catch (error) {
+        DOMManipulation.changeErrorMessage(
+          "Uh oh, looks like something went wrong! Check your spelling then try again!"
+        );
         console.error(Error(error.statusText));
       }
     }
   };
   const submitRandomInput = async () => {
+    let randomCityName;
     try {
       const cityResponse = await APIRequest.getRandomCity();
-      const randomCityName = filterData.getRandomCityName(cityResponse);
+      randomCityName = filterData.getRandomCityName(cityResponse);
       const weatherResponse = await APIRequest.getCityWeather(randomCityName);
       DOMManipulation.updateDisplayedWeather(weatherResponse);
     } catch (error) {
+      if (randomCityName !== undefined) {
+        DOMManipulation.changeErrorMessage(
+          `We don't have data on this random city, ${randomCityName}. Try again for a hopefully less random city.`
+        );
+      }
       console.error(Error(`${error.status} ${error.statusText}`));
     }
   };

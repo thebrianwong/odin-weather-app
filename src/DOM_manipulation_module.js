@@ -53,6 +53,10 @@ const DOMManipulation = (() => {
     tempCElement.textContent = "Smaller number°C";
     cityNameElement.textContent = "Disneyland";
   };
+  const changeErrorMessage = (message) => {
+    const errorMessageElement = document.querySelector(".error-message");
+    errorMessageElement.textContent = message;
+  };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
     addWeatherMain(weatherData);
@@ -65,6 +69,7 @@ const DOMManipulation = (() => {
   return {
     updateDisplayedWeather,
     addPlaceholderValues,
+    changeErrorMessage,
   };
 })();
 
