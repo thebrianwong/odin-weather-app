@@ -10,7 +10,6 @@ const userInput = (() => {
         const response = await APIRequest.getCityWeather(cityInputValue);
         DOMManipulation.updateDisplayedWeather(response);
       } catch (error) {
-        DOMManipulation.addPlaceholderValues();
         console.error(Error(error.statusText));
       }
     }
@@ -22,7 +21,6 @@ const userInput = (() => {
       const weatherResponse = await APIRequest.getCityWeather(randomCityName);
       DOMManipulation.updateDisplayedWeather(weatherResponse);
     } catch (error) {
-      DOMManipulation.addPlaceholderValues();
       console.error(Error(`${error.status} ${error.statusText}`));
     }
   };
