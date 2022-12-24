@@ -69,6 +69,10 @@ const DOMManipulation = (() => {
       }
     });
   };
+  const toggleLoadingIndicator = () => {
+    const loadingIndicator = document.querySelector("#loading-indicator");
+    loadingIndicator.classList.toggle("not-displayed");
+  };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
     addWeatherMain(weatherData);
@@ -83,6 +87,7 @@ const DOMManipulation = (() => {
     addPlaceholderValues,
     changeErrorMessage,
     toggleSubmissionElementsEnabled,
+    toggleLoadingIndicator,
   };
 })();
 
