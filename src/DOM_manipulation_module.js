@@ -57,12 +57,17 @@ const DOMManipulation = (() => {
     const errorMessageElement = document.querySelector(".error-message");
     errorMessageElement.textContent = message;
   };
-  const toggleButtonEnabled = (button) => {
-    if (button.disabled === false) {
-      button.disabled = true;
-    } else {
-      button.disabled = false;
-    }
+  const toggleSubmissionElementsEnabled = () => {
+    const submissionElements = Array.from(
+      document.querySelectorAll(".submission-element")
+    );
+    submissionElements.forEach((element) => {
+      if (element.disabled === false) {
+        element.disabled = true;
+      } else {
+        element.disabled = false;
+      }
+    });
   };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
@@ -77,7 +82,7 @@ const DOMManipulation = (() => {
     updateDisplayedWeather,
     addPlaceholderValues,
     changeErrorMessage,
-    toggleButtonEnabled,
+    toggleSubmissionElementsEnabled,
   };
 })();
 
