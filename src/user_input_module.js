@@ -34,6 +34,7 @@ const userInput = (() => {
           "Hmm, it seems like we're running into some trouble. Try again!"
         );
       } else if (error.status === 404 && weatherResponse === undefined) {
+        // GeoDB gave a city that has no data in OpenWeatherMap API
         setTimeout(submitRandomInput, 1500);
       }
       console.error(Error(`${error.status} ${error.statusText}`));
