@@ -19,16 +19,21 @@ const userInput = (() => {
   };
   const submitRandomInput = async () => {
     let randomCityName;
+    let weatherResponse;
     try {
       const cityResponse = await APIRequest.getRandomCity();
       randomCityName = filterData.getRandomCityName(cityResponse);
-      const weatherResponse = await APIRequest.getCityWeather(randomCityName);
+      weatherResponse = await APIRequest.getCityWeather(randomCityName);
       DOMManipulation.updateDisplayedWeather(weatherResponse);
     } catch (error) {
-      if (randomCityName !== undefined) {
+      if (error.status === 404 && randomCityName === undefined) {
+        // GeoDB API error
         DOMManipulation.changeErrorMessage(
-          `We don't have data on this random city, ${randomCityName}. Try again for a hopefully less random city.`
+          "Hmm, it seems like we're running into some trouble. Try again!"
         );
+      } else if (error.status === 404 && weatherResponse === undefined) {
+        // GeoDB gave a city that has no data in OpenWeatherMap API
+        setTimeout(submitRandomInput, 1500);
       }
       console.error(Error(`${error.status} ${error.statusText}`));
     }
