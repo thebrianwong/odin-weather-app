@@ -13,7 +13,7 @@ const APIRequest = (() => {
     return Promise.reject(response);
   };
   const getRandomCity = async () => {
-    const CITYCOUNT = 505713;
+    const CITYCOUNT = 508061;
     const randomCityIndex = Math.floor(Math.random() * CITYCOUNT) - 1;
     const options = {
       method: "GET",
