@@ -57,6 +57,13 @@ const DOMManipulation = (() => {
     const errorMessageElement = document.querySelector(".error-message");
     errorMessageElement.textContent = message;
   };
+  const toggleButtonEnabled = (button) => {
+    if (button.disabled === false) {
+      button.disabled = true;
+    } else {
+      button.disabled = false;
+    }
+  };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
     addWeatherMain(weatherData);
@@ -70,6 +77,7 @@ const DOMManipulation = (() => {
     updateDisplayedWeather,
     addPlaceholderValues,
     changeErrorMessage,
+    toggleButtonEnabled,
   };
 })();
 

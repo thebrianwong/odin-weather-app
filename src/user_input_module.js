@@ -20,6 +20,9 @@ const userInput = (() => {
   const submitRandomInput = async () => {
     let randomCityName;
     let weatherResponse;
+    const randomButton = document.querySelector(".random-button");
+    console.log(randomButton);
+    DOMManipulation.toggleButtonEnabled(randomButton);
     try {
       const cityResponse = await APIRequest.getRandomCity();
       randomCityName = filterData.getRandomCityName(cityResponse);
@@ -36,6 +39,8 @@ const userInput = (() => {
         setTimeout(submitRandomInput, 1500);
       }
       console.error(Error(`${error.status} ${error.statusText}`));
+    } finally {
+      DOMManipulation.toggleButtonEnabled(randomButton);
     }
   };
   const addUserInputListener = () => {
