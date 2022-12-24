@@ -46,7 +46,7 @@ const DOMManipulation = (() => {
     const tempFElement = document.querySelector(".temp-f");
     const tempCElement = document.querySelector(".temp-c");
     const cityNameElement = document.querySelector(".city-name");
-    weatherIconElement.src = "../mickey.png";
+    weatherIconElement.src = "../dist/mickey.png";
     weatherMainElement.textContent = "The sun might or might not be visible";
     weatherDescriptionElement.textContent = "hopefully the sky is still blue";
     tempFElement.textContent = "Larger number°F";
