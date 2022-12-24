@@ -21,13 +21,12 @@ const userInput = (() => {
     let randomCityName;
     let weatherResponse;
     const randomButton = document.querySelector(".random-button");
-    console.log(randomButton);
-    DOMManipulation.toggleButtonEnabled(randomButton);
     try {
       const cityResponse = await APIRequest.getRandomCity();
       randomCityName = filterData.getRandomCityName(cityResponse);
       weatherResponse = await APIRequest.getCityWeather(randomCityName);
       DOMManipulation.updateDisplayedWeather(weatherResponse);
+      DOMManipulation.toggleButtonEnabled(randomButton);
     } catch (error) {
       if (error.status === 404 && randomCityName === undefined) {
         // GeoDB API error
@@ -35,12 +34,9 @@ const userInput = (() => {
           "Hmm, it seems like we're running into some trouble. Try again!"
         );
       } else if (error.status === 404 && weatherResponse === undefined) {
-        // GeoDB gave a city that has no data in OpenWeatherMap API
         setTimeout(submitRandomInput, 1500);
       }
       console.error(Error(`${error.status} ${error.statusText}`));
-    } finally {
-      DOMManipulation.toggleButtonEnabled(randomButton);
     }
   };
   const addUserInputListener = () => {
@@ -53,7 +49,9 @@ const userInput = (() => {
         submitUserInput();
       }
     });
-    randomButton.addEventListener("click", submitRandomInput);
+    randomButton.addEventListener("click", () => {
+      DOMManipulation.toggleButtonEnabled(randomButton), submitRandomInput();
+    });
   };
   return { addUserInputListener };
 })();
