@@ -10,9 +10,17 @@ const userInput = (() => {
         const response = await APIRequest.getCityWeather(cityInputValue);
         DOMManipulation.updateDisplayedWeather(response);
       } catch (error) {
-        DOMManipulation.changeErrorMessage(
-          "Uh oh, looks like something went wrong! Check your spelling then try again!"
-        );
+        if (error.status === 404) {
+          // OpenWeatherMap API can't find the city due to misspelling or lack of data
+          DOMManipulation.changeErrorMessage(
+            "Uh oh, looks like something went wrong! Check your spelling or try a different city!"
+          );
+        } else if (error.status === 429) {
+          // OpenWeatherMap API rate limit
+          DOMManipulation.changeErrorMessage(
+            "Whoa, slow down there partner! Save some weather data for the rest of us!"
+          );
+        }
         console.error(Error(error.statusText));
       }
     }
@@ -33,7 +41,10 @@ const userInput = (() => {
         DOMManipulation.changeErrorMessage(
           "Hmm, it seems like we're running into some trouble. Try again!"
         );
-      } else if (error.status === 404 && weatherResponse === undefined) {
+      } else if (
+        (error.status === 404 && weatherResponse === undefined) ||
+        error.status === 429
+      ) {
         // GeoDB gave a city that has no data in OpenWeatherMap API
         setTimeout(submitRandomInput, 1500);
       }
