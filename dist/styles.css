@@ -13,3 +13,7 @@
   animation-iteration-count: infinite;
   animation-duration: 1s;
 }
+
+.not-displayed {
+  display: none;
+}
