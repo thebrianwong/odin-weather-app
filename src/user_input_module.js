@@ -28,6 +28,7 @@ const userInput = (() => {
         console.error(Error(error.statusText));
       }
     }
+    DOMManipulation.toggleSubmissionElementsEnabled();
   };
   const submitRandomInput = async () => {
     let randomCityName;
@@ -62,10 +63,12 @@ const userInput = (() => {
     const searchButton = document.querySelector(".search-button");
     const cityInputElement = document.querySelector("#city");
     const randomButton = document.querySelector(".random-button");
-    searchButton.addEventListener("click", submitUserInput);
+    searchButton.addEventListener("click", () => {
+      DOMManipulation.toggleSubmissionElementsEnabled(), submitUserInput();
+    });
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        submitUserInput();
+        DOMManipulation.toggleSubmissionElementsEnabled(), submitUserInput();
       }
     });
     randomButton.addEventListener("click", () => {
