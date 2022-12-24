@@ -20,6 +20,10 @@ const userInput = (() => {
           DOMManipulation.changeErrorMessage(
             "Whoa, slow down there partner! Save some weather data for the rest of us!"
           );
+        } else if (error.status === 500) {
+          DOMManipulation.changeErrorMessage(
+            "Something out of our control is broken. Try again later!"
+          );
         }
         console.error(Error(error.statusText));
       }
@@ -47,6 +51,10 @@ const userInput = (() => {
       ) {
         // GeoDB gave a city that has no data in OpenWeatherMap API
         setTimeout(submitRandomInput, 1500);
+      } else if (error.status === 500) {
+        DOMManipulation.changeErrorMessage(
+          "Something out of our control is broken. Try again later!"
+        );
       }
       console.error(Error(`${error.status} ${error.statusText}`));
     }
