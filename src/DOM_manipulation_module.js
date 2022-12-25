@@ -73,7 +73,7 @@ const DOMManipulation = (() => {
   const toggleElementDisplay = (element) => {
     element.classList.toggle("not-displayed");
   };
-  const changeLoadingMessage = async (message) => {
+  const changeLoadingMessage = (message) => {
     const loadingMessage = document.querySelector(".loading-message");
     loadingMessage.textContent = message;
   };
