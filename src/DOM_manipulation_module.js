@@ -5,7 +5,7 @@ const DOMManipulation = (() => {
   const addWeatherIcon = (weatherData) => {
     const weatherIcon = filterData.getWeatherIconCode(weatherData);
     const weatherIconElement = document.querySelector(".weather-icon");
-    weatherIconElement.src = `http://openweathermap.org/img/wn/${weatherIcon}.png`;
+    weatherIconElement.src = `http://openweathermap.org/img/wn/${weatherIcon}@4x.png`;
   };
   const addWeatherMain = (weatherData) => {
     const weatherMain = filterData.getWeatherMain(weatherData);
