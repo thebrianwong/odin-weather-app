@@ -3,12 +3,19 @@
 }
 
 body {
+  background-color: whitesmoke;
+}
+
+.container {
   /* display: grid; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  background-color: white;
+  border: solid 4px darkgray;
+  border-radius: 8px;
+  margin: 10vh 15vw;
   grid-template-columns: 150px 1fr 150px;
   grid-template-rows: 100px 1fr 100px;
 }
