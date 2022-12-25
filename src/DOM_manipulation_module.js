@@ -120,7 +120,6 @@ const DOMManipulation = (() => {
     changeErrorMessage,
     toggleElementDisplay,
     toggleLoadingInProgress,
-    toggleLoadingMessageCycle,
   };
 })();
 
