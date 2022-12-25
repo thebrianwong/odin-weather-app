@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
   grid-template-columns: 150px 1fr 150px;
   grid-template-rows: 100px 1fr 100px;
 }
@@ -20,10 +20,18 @@ body {
   grid-area: 2 / 2 / 3 / 3;
 }
 
+.title {
+  text-align: center;
+  line-height: 1.5;
+  font-size: xx-large;
+  font-weight: 900;
+}
+
 .weather-display {
   display: flex;
   align-items: center;
   text-align: right;
+  margin-bottom: 50px;
 }
 
 .weather-icon {
@@ -38,6 +46,19 @@ body {
 
 .weather-description {
   font-style: italic;
+}
+
+.description {
+  text-align: center;
+  line-height: 1.25;
+}
+
+.search-button {
+  margin: 15px 0
+}
+
+#loading-indicator {
+  display: flex;
 }
 
 @keyframes loading {
@@ -56,8 +77,12 @@ body {
   animation-duration: 1s;
 }
 
+.loading-message {
+  margin: 0 0 0 10px;
+}
+
 .not-displayed {
-  display: none;
+  display: none !important;
 }
 
 .temp-button {
