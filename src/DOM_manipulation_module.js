@@ -1,6 +1,7 @@
 import { filterData } from "./filter_data_module";
 
 const DOMManipulation = (() => {
+  let timer = false;
   const addWeatherIcon = (weatherData) => {
     const weatherIcon = filterData.getWeatherIconCode(weatherData);
     const weatherIconElement = document.querySelector(".weather-icon");
@@ -72,10 +73,28 @@ const DOMManipulation = (() => {
   const toggleElementDisplay = (element) => {
     element.classList.toggle("not-displayed");
   };
+  const changeLoadingMessage = async (message) => {
+    const loadingMessage = document.querySelector(".loading-message");
+    loadingMessage.textContent = message;
+  };
+  const waitTimer = (duration) =>
+    new Promise((response) => setTimeout(response, duration));
+  const toggleLoadingMessageCycle = async () => {
+    timer ? (timer = false) : (timer = true);
+    while (timer) {
+      await waitTimer(1000);
+      changeLoadingMessage("Loading.");
+      await waitTimer(1000);
+      changeLoadingMessage("Loading..");
+      await waitTimer(1000);
+      changeLoadingMessage("Loading...");
+    }
+  };
   const toggleLoadingInProgress = () => {
     const loadingIndicator = document.querySelector("#loading-indicator");
     toggleSubmissionElementsEnabled();
     toggleElementDisplay(loadingIndicator);
+    toggleLoadingMessageCycle();
   };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
@@ -92,6 +111,7 @@ const DOMManipulation = (() => {
     changeErrorMessage,
     toggleElementDisplay,
     toggleLoadingInProgress,
+    toggleLoadingMessageCycle,
   };
 })();
 
