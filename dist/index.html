@@ -10,25 +10,27 @@
   <title>Odin Weather App</title>
 </head>
 <body>
-  <p class="title">Weather App #239879<br>Now in Technicolor!</p>
-  <div class="weather-display">
-    <img src="" alt="" class="weather-icon">
-    <div class="weather-info">
-      <p class="city-name"></p>
-      <p class="weather-main"></p>
-      <p class="weather-description"></p>
-      <button class="temp-f temp-button submission-element"></button>
-      <button class="temp-c temp-button submission-element not-displayed"></button>
+  <div class="container">
+    <p class="title">Weather App #239879<br>Now in Technicolor!</p>
+    <div class="weather-display">
+      <img src="" alt="" class="weather-icon">
+      <div class="weather-info">
+        <p class="city-name"></p>
+        <p class="weather-main"></p>
+        <p class="weather-description"></p>
+        <button class="temp-f temp-button submission-element"></button>
+        <button class="temp-c temp-button submission-element not-displayed"></button>
+      </div>
     </div>
-  </div>
-  <p class="description">Search the weather for any city,<br> or try your luck with a completely random city!</p>
-  <input type="text" name="city" id="city" class="submission-element">
-  <button class="search-button submission-element">Weather Me!</button>
-  <button class="random-button submission-element">Random City</button>
-  <p class="error-message"></p>
-  <div id="loading-indicator" class="not-displayed">
-    <img class="loading-image" src="../dist/loading.png" alt="">
-    <p class="loading-message">Loading...</p>
+    <p class="description">Search the weather for any city,<br> or try your luck with a completely random city<br>from around the world!</p>
+    <input type="text" name="city" id="city" class="submission-element">
+    <button class="search-button submission-element">Weather Me!</button>
+    <button class="random-button submission-element">Random City</button>
+    <p class="error-message"></p>
+    <div id="loading-indicator" class="not-displayed">
+      <img class="loading-image" src="../dist/loading.png" alt="">
+      <p class="loading-message">Loading...</p>
+    </div>
   </div>
 </body>
 </html>
