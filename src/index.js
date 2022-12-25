@@ -34,4 +34,4 @@ import { DOMManipulation } from "./DOM_manipulation_module";
     );
   }
 })();
-userInput.addUserInputListener();
+userInput.addUserInputListeners();

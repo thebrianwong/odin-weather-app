@@ -59,22 +59,28 @@ const userInput = (() => {
       console.error(Error(`${error.status} ${error.statusText}`));
     }
   };
-  const addUserInputListener = () => {
+  const addSearchButtonListener = () => {
     const searchButton = document.querySelector(".search-button");
-    const cityInputElement = document.querySelector("#city");
-    const randomButton = document.querySelector(".random-button");
-    const tempButtons = Array.from(document.querySelectorAll(".temp-button"));
     searchButton.addEventListener("click", () => {
       DOMManipulation.toggleLoadingInProgress(), submitUserInput();
     });
+  };
+  const addInputElementListener = () => {
+    const cityInputElement = document.querySelector("#city");
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         DOMManipulation.toggleLoadingInProgress(), submitUserInput();
       }
     });
+  };
+  const addRandomButtonListener = () => {
+    const randomButton = document.querySelector(".random-button");
     randomButton.addEventListener("click", () => {
       DOMManipulation.toggleLoadingInProgress(), submitRandomInput();
     });
+  };
+  const addTemperatureButtonListeners = () => {
+    const tempButtons = Array.from(document.querySelectorAll(".temp-button"));
     tempButtons.forEach((button) => {
       button.addEventListener("click", () => {
         tempButtons.forEach((button) => {
@@ -83,7 +89,13 @@ const userInput = (() => {
       });
     });
   };
-  return { addUserInputListener };
+  const addUserInputListeners = () => {
+    addSearchButtonListener();
+    addInputElementListener();
+    addRandomButtonListener();
+    addTemperatureButtonListeners();
+  };
+  return { addUserInputListeners };
 })();
 
 export { userInput };
