@@ -63,6 +63,7 @@ const userInput = (() => {
     const searchButton = document.querySelector(".search-button");
     const cityInputElement = document.querySelector("#city");
     const randomButton = document.querySelector(".random-button");
+    const tempButtons = Array.from(document.querySelectorAll(".temp-button"));
     searchButton.addEventListener("click", () => {
       DOMManipulation.toggleLoadingInProgress(), submitUserInput();
     });
@@ -73,6 +74,13 @@ const userInput = (() => {
     });
     randomButton.addEventListener("click", () => {
       DOMManipulation.toggleLoadingInProgress(), submitRandomInput();
+    });
+    tempButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        tempButtons.forEach((button) => {
+          DOMManipulation.toggleElementDisplay(button);
+        });
+      });
     });
   };
   return { addUserInputListener };
