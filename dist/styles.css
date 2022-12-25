@@ -15,7 +15,7 @@ body {
   background-color: white;
   border: solid 4px darkgray;
   border-radius: 8px;
-  margin: 10vh 15vw;
+  margin: 5vh 15vw;
   grid-template-columns: 150px 1fr 150px;
   grid-template-rows: 100px 1fr 100px;
 }
@@ -66,6 +66,7 @@ body {
 
 #loading-indicator {
   display: flex;
+  margin-bottom: 16px;
 }
 
 @keyframes loading {
@@ -111,4 +112,16 @@ body {
 .temp-c,
 .temp-f:hover {
   color: skyblue;
+}
+
+.credits-container {
+  text-align: center;
+  font-size: .85rem;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+a {
+  color: darkgray;
+  text-decoration: none;
 }
