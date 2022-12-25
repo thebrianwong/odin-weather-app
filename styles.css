@@ -17,3 +17,20 @@
 .not-displayed {
   display: none;
 }
+
+.temp-button {
+  background-color: transparent;
+  border: none;
+}
+
+.temp-button:hover {
+  cursor: pointer;
+}
+
+.temp-f:hover {
+  color: skyblue;
+}
+
+.temp-c:hover {
+  color: salmon;
+}
