@@ -1,3 +1,45 @@
+* {
+  border: solid 1px red;
+}
+
+body {
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15vh;
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 100px 1fr 100px;
+}
+
+.weather-display,
+.submission-element,
+.error-message,
+#loading-indicator {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.weather-display {
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+
+.weather-icon {
+  height: fit-content;
+}
+
+.city-name,
+.weather-main {
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.weather-description {
+  font-style: italic;
+}
+
 @keyframes loading {
   from {
     transform: rotate(0deg);
@@ -21,6 +63,7 @@
 .temp-button {
   background-color: transparent;
   border: none;
+  font-size: larger;
 }
 
 .temp-button:hover {
