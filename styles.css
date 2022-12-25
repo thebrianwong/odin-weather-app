@@ -64,6 +64,14 @@ body {
   margin: 16px 0
 }
 
+.error-message {
+  background-color: pink;
+  color: black;
+  border: solid 2px lightgray;
+  border-radius: 4px;
+  padding: 2.5px 5px;
+}
+
 #loading-indicator {
   display: flex;
   margin-bottom: 16px;
@@ -118,7 +126,7 @@ body {
   text-align: center;
   font-size: .85rem;
   font-style: italic;
-  margin-bottom: 16px;
+  margin: 16px 0
 }
 
 a {
