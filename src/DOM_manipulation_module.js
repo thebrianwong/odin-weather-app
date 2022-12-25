@@ -69,13 +69,13 @@ const DOMManipulation = (() => {
       }
     });
   };
-  const toggleLoadingIndicator = () => {
-    const loadingIndicator = document.querySelector("#loading-indicator");
-    loadingIndicator.classList.toggle("not-displayed");
+  const toggleElementDisplay = (element) => {
+    element.classList.toggle("not-displayed");
   };
   const toggleLoadingInProgress = () => {
+    const loadingIndicator = document.querySelector("#loading-indicator");
     toggleSubmissionElementsEnabled();
-    toggleLoadingIndicator();
+    toggleElementDisplay(loadingIndicator);
   };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
