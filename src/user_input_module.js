@@ -28,7 +28,7 @@ const userInput = (() => {
         console.error(Error(error.statusText));
       }
     }
-    DOMManipulation.toggleSubmissionElementsEnabled();
+    DOMManipulation.toggleLoadingInProgress();
   };
   const submitRandomInput = async () => {
     let randomCityName;
@@ -38,7 +38,7 @@ const userInput = (() => {
       randomCityName = filterData.getRandomCityName(cityResponse);
       weatherResponse = await APIRequest.getCityWeather(randomCityName);
       DOMManipulation.updateDisplayedWeather(weatherResponse);
-      DOMManipulation.toggleSubmissionElementsEnabled();
+      DOMManipulation.toggleLoadingInProgress();
     } catch (error) {
       if (error.status === 404 && randomCityName === undefined) {
         // GeoDB API error
@@ -64,15 +64,15 @@ const userInput = (() => {
     const cityInputElement = document.querySelector("#city");
     const randomButton = document.querySelector(".random-button");
     searchButton.addEventListener("click", () => {
-      DOMManipulation.toggleSubmissionElementsEnabled(), submitUserInput();
+      DOMManipulation.toggleLoadingInProgress(), submitUserInput();
     });
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        DOMManipulation.toggleSubmissionElementsEnabled(), submitUserInput();
+        DOMManipulation.toggleLoadingInProgress(), submitUserInput();
       }
     });
     randomButton.addEventListener("click", () => {
-      DOMManipulation.toggleSubmissionElementsEnabled(), submitRandomInput();
+      DOMManipulation.toggleLoadingInProgress(), submitRandomInput();
     });
   };
   return { addUserInputListener };

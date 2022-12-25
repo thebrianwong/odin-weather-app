@@ -73,6 +73,10 @@ const DOMManipulation = (() => {
     const loadingIndicator = document.querySelector("#loading-indicator");
     loadingIndicator.classList.toggle("not-displayed");
   };
+  const toggleLoadingInProgress = () => {
+    toggleSubmissionElementsEnabled();
+    toggleLoadingIndicator();
+  };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
     addWeatherMain(weatherData);
@@ -86,8 +90,7 @@ const DOMManipulation = (() => {
     updateDisplayedWeather,
     addPlaceholderValues,
     changeErrorMessage,
-    toggleSubmissionElementsEnabled,
-    toggleLoadingIndicator,
+    toggleLoadingInProgress,
   };
 })();
 
