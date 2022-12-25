@@ -80,11 +80,20 @@ const DOMManipulation = (() => {
   const waitTimer = (duration) =>
     new Promise((response) => setTimeout(response, duration));
   const toggleLoadingMessageCycle = async () => {
+    const loadingIndicator = document.querySelector("#loading-indicator");
     timer ? (timer = false) : (timer = true);
     while (timer) {
       await waitTimer(1000);
+      if (Array.from(loadingIndicator.classList).includes("not-displayed")) {
+        changeLoadingMessage("Loading...");
+        break;
+      }
       changeLoadingMessage("Loading.");
       await waitTimer(1000);
+      if (Array.from(loadingIndicator.classList).includes("not-displayed")) {
+        changeLoadingMessage("Loading...");
+        break;
+      }
       changeLoadingMessage("Loading..");
       await waitTimer(1000);
       changeLoadingMessage("Loading...");
