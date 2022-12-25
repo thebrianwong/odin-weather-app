@@ -25,12 +25,15 @@
 
 .temp-button:hover {
   cursor: pointer;
+  font-weight: 600;
 }
 
-.temp-f:hover {
-  color: skyblue;
-}
-
+.temp-f,
 .temp-c:hover {
   color: salmon;
+}
+
+.temp-c,
+.temp-f:hover {
+  color: skyblue;
 }
