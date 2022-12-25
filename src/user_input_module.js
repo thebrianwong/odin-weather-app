@@ -62,21 +62,27 @@ const userInput = (() => {
   const addSearchButtonListener = () => {
     const searchButton = document.querySelector(".search-button");
     searchButton.addEventListener("click", () => {
-      DOMManipulation.toggleLoadingInProgress(), submitUserInput();
+      DOMManipulation.changeErrorMessage(""),
+        DOMManipulation.toggleLoadingInProgress(),
+        submitUserInput();
     });
   };
   const addInputElementListener = () => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        DOMManipulation.toggleLoadingInProgress(), submitUserInput();
+        DOMManipulation.changeErrorMessage(""),
+          DOMManipulation.toggleLoadingInProgress(),
+          submitUserInput();
       }
     });
   };
   const addRandomButtonListener = () => {
     const randomButton = document.querySelector(".random-button");
     randomButton.addEventListener("click", () => {
-      DOMManipulation.toggleLoadingInProgress(), submitRandomInput();
+      DOMManipulation.changeErrorMessage(""),
+        DOMManipulation.toggleLoadingInProgress(),
+        submitRandomInput();
     });
   };
   const addTemperatureButtonListeners = () => {
