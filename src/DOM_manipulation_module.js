@@ -90,6 +90,7 @@ const DOMManipulation = (() => {
     updateDisplayedWeather,
     addPlaceholderValues,
     changeErrorMessage,
+    toggleElementDisplay,
     toggleLoadingInProgress,
   };
 })();
