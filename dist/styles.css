@@ -49,6 +49,12 @@ body {
 .weather-main {
   font-size: x-large;
   font-weight: 600;
+  margin-bottom: 0;
+}
+
+.country-name,
+.weather-description {
+  margin: 5px 0 0;
 }
 
 .weather-description {
@@ -106,6 +112,7 @@ body {
   background-color: transparent;
   border: none;
   font-size: larger;
+  margin-top: 16px;
 }
 
 .temp-button:hover {
