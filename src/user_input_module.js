@@ -64,7 +64,6 @@ const userInput = (() => {
   const addSearchButtonListener = () => {
     const searchButton = document.querySelector(".search-button");
     searchButton.addEventListener("click", () => {
-      // DOMManipulation.changeErrorMessage(""),
       DOMManipulation.resetError(),
         DOMManipulation.toggleLoadingInProgress("Loading"),
         submitUserInput();
@@ -74,7 +73,6 @@ const userInput = (() => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        // DOMManipulation.changeErrorMessage(""),
         DOMManipulation.resetError(),
           DOMManipulation.toggleLoadingInProgress("Loading"),
           submitUserInput();
@@ -84,7 +82,6 @@ const userInput = (() => {
   const addRandomButtonListener = () => {
     const randomButton = document.querySelector(".random-button");
     randomButton.addEventListener("click", () => {
-      // DOMManipulation.changeErrorMessage(""),
       DOMManipulation.resetError(),
         DOMManipulation.toggleLoadingInProgress("Randomizing"),
         submitRandomInput();
