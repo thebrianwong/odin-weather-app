@@ -14,6 +14,13 @@ const filterData = (() => {
   const getWeatherDescription = (data) => data.weather[0].description;
   const getWeatherIconCode = (data) => data.weather[0].icon;
   const getCityName = (data) => data.name;
+  const getCountryCode = (data) => data.sys.country;
+  const getCountryName = (data) => {
+    const countryCode = getCountryCode(data);
+    const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
+    const countryName = regionNames.of(`${countryCode}`);
+    return countryName;
+  };
   const getRandomCityName = (data) => data.data[0].city;
   return {
     getTemperatureFahrenheit,
@@ -23,6 +30,7 @@ const filterData = (() => {
     getWeatherIconCode,
     getCityName,
     getRandomCityName,
+    getCountryName,
   };
 })();
 
