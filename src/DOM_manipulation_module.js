@@ -79,31 +79,32 @@ const DOMManipulation = (() => {
   };
   const waitTimer = (duration) =>
     new Promise((response) => setTimeout(response, duration));
-  const toggleLoadingMessageCycle = async () => {
+  const toggleLoadingMessageCycle = async (loadingMessage) => {
     const loadingIndicator = document.querySelector("#loading-indicator");
     timer ? (timer = false) : (timer = true);
     while (timer) {
+      changeLoadingMessage(`${loadingMessage}...`);
       await waitTimer(1000);
       if (Array.from(loadingIndicator.classList).includes("not-displayed")) {
-        changeLoadingMessage("Loading...");
+        changeLoadingMessage(`${loadingMessage}...`);
         break;
       }
-      changeLoadingMessage("Loading.");
+      changeLoadingMessage(`${loadingMessage}.`);
       await waitTimer(1000);
       if (Array.from(loadingIndicator.classList).includes("not-displayed")) {
-        changeLoadingMessage("Loading...");
+        changeLoadingMessage(`${loadingMessage}...`);
         break;
       }
-      changeLoadingMessage("Loading..");
+      changeLoadingMessage(`${loadingMessage}..`);
       await waitTimer(1000);
-      changeLoadingMessage("Loading...");
+      changeLoadingMessage(`${loadingMessage}...`);
     }
   };
-  const toggleLoadingInProgress = () => {
+  const toggleLoadingInProgress = (loadingMessage) => {
     const loadingIndicator = document.querySelector("#loading-indicator");
     toggleSubmissionElementsEnabled();
     toggleElementDisplay(loadingIndicator);
-    toggleLoadingMessageCycle();
+    toggleLoadingMessageCycle(loadingMessage);
   };
   const resetError = () => {
     const errorMessageElement = document.querySelector(".error-message");

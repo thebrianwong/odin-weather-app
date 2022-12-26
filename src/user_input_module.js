@@ -66,7 +66,7 @@ const userInput = (() => {
     searchButton.addEventListener("click", () => {
       // DOMManipulation.changeErrorMessage(""),
       DOMManipulation.resetError(),
-        DOMManipulation.toggleLoadingInProgress(),
+        DOMManipulation.toggleLoadingInProgress("Loading"),
         submitUserInput();
     });
   };
@@ -76,7 +76,7 @@ const userInput = (() => {
       if (event.key === "Enter") {
         // DOMManipulation.changeErrorMessage(""),
         DOMManipulation.resetError(),
-          DOMManipulation.toggleLoadingInProgress(),
+          DOMManipulation.toggleLoadingInProgress("Loading"),
           submitUserInput();
       }
     });
@@ -86,7 +86,7 @@ const userInput = (() => {
     randomButton.addEventListener("click", () => {
       // DOMManipulation.changeErrorMessage(""),
       DOMManipulation.resetError(),
-        DOMManipulation.toggleLoadingInProgress(),
+        DOMManipulation.toggleLoadingInProgress("Randomizing"),
         submitRandomInput();
     });
   };
