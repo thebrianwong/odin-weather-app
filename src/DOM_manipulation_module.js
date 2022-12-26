@@ -111,7 +111,6 @@ const DOMManipulation = (() => {
     if (!Array.from(errorMessageElement.classList).includes("not-displayed")) {
       errorMessageElement.classList.add("not-displayed");
     }
-    changeErrorMessage("");
   };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
