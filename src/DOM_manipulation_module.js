@@ -43,6 +43,16 @@ const DOMManipulation = (() => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.value = "";
   };
+  const updateDisplayedWeather = (weatherData) => {
+    addWeatherIcon(weatherData);
+    addWeatherMain(weatherData);
+    addWeatherDescription(weatherData);
+    addTemperatureFahrenheit(weatherData);
+    addTemperatureCelsius(weatherData);
+    addCityName(weatherData);
+    addCountryName(weatherData);
+    resetInputValue();
+  };
   const addPlaceholderValues = () => {
     const weatherIconElement = document.querySelector(".weather-icon");
     const weatherMainElement = document.querySelector(".weather-main");
@@ -116,16 +126,6 @@ const DOMManipulation = (() => {
     if (!Array.from(errorMessageElement.classList).includes("not-displayed")) {
       errorMessageElement.classList.add("not-displayed");
     }
-  };
-  const updateDisplayedWeather = (weatherData) => {
-    addWeatherIcon(weatherData);
-    addWeatherMain(weatherData);
-    addWeatherDescription(weatherData);
-    addTemperatureFahrenheit(weatherData);
-    addTemperatureCelsius(weatherData);
-    addCityName(weatherData);
-    addCountryName(weatherData);
-    resetInputValue();
   };
   return {
     updateDisplayedWeather,
