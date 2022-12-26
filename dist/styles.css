@@ -7,7 +7,6 @@ body {
 }
 
 .container {
-  /* display: grid; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,15 +15,6 @@ body {
   border: solid 4px darkgray;
   border-radius: 8px;
   margin: 5vh 15vw;
-  grid-template-columns: 150px 1fr 150px;
-  grid-template-rows: 100px 1fr 100px;
-}
-
-.weather-display,
-.submission-element,
-.error-message,
-#loading-indicator {
-  grid-area: 2 / 2 / 3 / 3;
 }
 
 .title {
