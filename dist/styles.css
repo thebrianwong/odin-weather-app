@@ -139,3 +139,16 @@ a {
   color: darkgray;
   text-decoration: none;
 }
+
+@media (max-width: 500px) {
+  .weather-display {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  #city{
+    width: 80%;
+  }
+}
