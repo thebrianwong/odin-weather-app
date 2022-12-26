@@ -25,6 +25,8 @@ const userInput = (() => {
             "Something out of our control is broken. Try again later!"
           );
         }
+        const errorMessageElement = document.querySelector(".error-message");
+        DOMManipulation.toggleElementDisplay(errorMessageElement);
         console.error(Error(error.statusText));
       }
     }
@@ -62,7 +64,8 @@ const userInput = (() => {
   const addSearchButtonListener = () => {
     const searchButton = document.querySelector(".search-button");
     searchButton.addEventListener("click", () => {
-      DOMManipulation.changeErrorMessage(""),
+      // DOMManipulation.changeErrorMessage(""),
+      DOMManipulation.resetError(),
         DOMManipulation.toggleLoadingInProgress(),
         submitUserInput();
     });
@@ -71,7 +74,8 @@ const userInput = (() => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        DOMManipulation.changeErrorMessage(""),
+        // DOMManipulation.changeErrorMessage(""),
+        DOMManipulation.resetError(),
           DOMManipulation.toggleLoadingInProgress(),
           submitUserInput();
       }
@@ -80,7 +84,8 @@ const userInput = (() => {
   const addRandomButtonListener = () => {
     const randomButton = document.querySelector(".random-button");
     randomButton.addEventListener("click", () => {
-      DOMManipulation.changeErrorMessage(""),
+      // DOMManipulation.changeErrorMessage(""),
+      DOMManipulation.resetError(),
         DOMManipulation.toggleLoadingInProgress(),
         submitRandomInput();
     });

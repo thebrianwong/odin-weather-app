@@ -105,6 +105,13 @@ const DOMManipulation = (() => {
     toggleElementDisplay(loadingIndicator);
     toggleLoadingMessageCycle();
   };
+  const resetError = () => {
+    const errorMessageElement = document.querySelector(".error-message");
+    if (!Array.from(errorMessageElement.classList).includes("not-displayed")) {
+      errorMessageElement.classList.add("not-displayed");
+    }
+    changeErrorMessage("");
+  };
   const updateDisplayedWeather = (weatherData) => {
     addWeatherIcon(weatherData);
     addWeatherMain(weatherData);
@@ -120,6 +127,7 @@ const DOMManipulation = (() => {
     changeErrorMessage,
     toggleElementDisplay,
     toggleLoadingInProgress,
+    resetError,
   };
 })();
 
