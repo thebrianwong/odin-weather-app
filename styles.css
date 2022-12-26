@@ -22,6 +22,7 @@ body {
   font-size: xx-large;
   line-height: 1.5;
   font-weight: 900;
+  margin: 32px;
 }
 
 .weather-display {
@@ -49,6 +50,28 @@ body {
 
 .weather-description {
   font-style: italic;
+}
+
+.temp-button {
+  background-color: transparent;
+  border: none;
+  font-size: larger;
+  margin-top: 16px;
+}
+
+.temp-button:hover {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.temp-f,
+.temp-c:hover {
+  color: salmon;
+}
+
+.temp-c,
+.temp-f:hover {
+  color: skyblue;
 }
 
 .description {
@@ -95,32 +118,6 @@ body {
   margin: 0 0 0 10px;
 }
 
-.not-displayed {
-  display: none !important;
-}
-
-.temp-button {
-  background-color: transparent;
-  border: none;
-  font-size: larger;
-  margin-top: 16px;
-}
-
-.temp-button:hover {
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.temp-f,
-.temp-c:hover {
-  color: salmon;
-}
-
-.temp-c,
-.temp-f:hover {
-  color: skyblue;
-}
-
 .credits-container {
   display: flex;
   flex-direction: column;
@@ -138,6 +135,10 @@ body {
 a {
   color: darkgray;
   text-decoration: none;
+}
+
+.not-displayed {
+  display: none !important;
 }
 
 @media (max-width: 500px) {
