@@ -54,7 +54,7 @@ body {
 .description {
   text-align: center;
   line-height: 1.25;
-  margin: 16px 0;
+  margin: 16px 32px;
 }
 
 .search-button {
@@ -128,7 +128,7 @@ body {
   font-style: italic;
   font-size: .85rem;
   gap: 16px;
-  margin: 32px 0
+  margin: 32px;
 }
 
 .credits {
