@@ -70,11 +70,12 @@ body {
   border: solid 2px lightgray;
   border-radius: 4px;
   padding: 2.5px 5px;
+  margin-top: 16px;
 }
 
 #loading-indicator {
   display: flex;
-  margin-bottom: 16px;
+  margin-top: 32px;
 }
 
 @keyframes loading {
@@ -123,10 +124,17 @@ body {
 }
 
 .credits-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   font-size: .85rem;
   font-style: italic;
-  margin: 16px 0
+  gap: 16px;
+  margin: 32px 0
+}
+
+.credits {
+  margin: 0;
 }
 
 a {
