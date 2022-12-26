@@ -34,6 +34,11 @@ const DOMManipulation = (() => {
     const cityNameElement = document.querySelector(".city-name");
     cityNameElement.textContent = cityName;
   };
+  const addCountryName = (weatherData) => {
+    const countryName = filterData.getCountryName(weatherData);
+    const countryNameElement = document.querySelector(".country-name");
+    countryNameElement.textContent = countryName;
+  };
   const resetInputValue = () => {
     const cityInputElement = document.querySelector("#city");
     cityInputElement.value = "";
@@ -119,6 +124,7 @@ const DOMManipulation = (() => {
     addTemperatureFahrenheit(weatherData);
     addTemperatureCelsius(weatherData);
     addCityName(weatherData);
+    addCountryName(weatherData);
     resetInputValue();
   };
   return {
