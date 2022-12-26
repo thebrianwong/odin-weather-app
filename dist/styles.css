@@ -64,6 +64,7 @@ body {
 .description {
   text-align: center;
   line-height: 1.25;
+  margin: 16px 0;
 }
 
 .search-button {
